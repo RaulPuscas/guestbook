@@ -1,5 +1,5 @@
 guestbook:
-  replicaCount: 1
+  replicaCount: 2
 
   service:
     type: LoadBalancer
