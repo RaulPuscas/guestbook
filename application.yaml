@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-subchart
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook-subchart
+    server: https://kubernetes.default.svc
+  project: default
+
+  source:
+    path: guestbook-subchart
+    repoURL: https://github.com/GITHUB_USERNAME/guestbook
+    targetRevision: HEAD
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
